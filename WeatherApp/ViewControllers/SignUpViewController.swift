@@ -109,9 +109,10 @@ class SignUpViewController: UIViewController {
     }
     
     func transitionToHome() {
-        let homeViewController = storyboard?.instantiateViewController(withIdentifier:"homeVC")
-        view.window?.rootViewController = homeViewController
-        view.window?.makeKeyAndVisible()
+         let vc = self.storyboard?.instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
+                let navigationController = UINavigationController(rootViewController: vc)
+            navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     func showAlert(title: String, message: String) {
